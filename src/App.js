@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
+import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 import confetti from "canvas-confetti";
 import "./App.css";
 
-function App() {
+export default function App() {
   const [account, setAccount] = useState("");
   const [connected, setConnected] = useState(false);
+  const [provider, setProvider] = useState(null);
+
   const [dustList, setDustList] = useState([
     { name: "Plume Dust", value: 3, checked: true },
     { name: "Moonshit Token", value: 8, checked: true },
@@ -13,17 +16,35 @@ function App() {
     { name: "Random Crap", value: 2, checked: false },
   ]);
 
+  // Initialize Coinbase Wallet SDK
+  useEffect(() => {
+    const sdk = new CoinbaseWalletSDK({
+      appName: "Dustbuster.ai",
+      appLogoUrl: "https://dustbuster-ui.vercel.app/favicon.ico",
+      darkMode: true,
+    });
+
+    const cbProvider = sdk.makeWeb3Provider(
+      "https://mainnet.base.org", // Base RPC
+      8453 // Base chain ID
+    );
+
+    setProvider(cbProvider);
+  }, []);
+
   const connectWallet = async () => {
-    if (!window.ethereum) {
-      alert("Install MetaMask!");
-      return;
+    if (!provider) return alert("Wallet still loading…");
+
+    try {
+      const accounts = await provider.request({
+        method: "eth_requestAccounts",
+      });
+      setAccount(accounts[0]);
+      setConnected(true);
+    } catch (err) {
+      console.error(err);
+      alert("Connection rejected or failed");
     }
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    await provider.send("eth_requestAccounts", []);
-    const signer = await provider.getSigner();
-    const addr = await signer.getAddress();
-    setAccount(addr);
-    setConnected(true);
   };
 
   const vacuum = () => {
@@ -31,29 +52,30 @@ function App() {
       .filter((t) => t.checked)
       .reduce((sum, t) => sum + t.value, 0);
 
-    // Confetti explosion
+    if (totalCents === 0) return alert("Check some dust first!");
+
     confetti({
-      particleCount: 180,
-      spread: 80,
+      particleCount: 200,
+      spread: 90,
       origin: { y: 0.6 },
       colors: ["#ff9500", "#ffb13b", "#ffd27a"],
     });
 
     alert(
-      `🧹 Vacuumed ${totalCents}¢ → ${totalCents} Dust minted!\n\nYou're in the Tuesday & Friday 4:20 draw.\nMinimum win: $6.90 → next level $69 → $690 → $6,900…`
+      `Vacuumed ${totalCents}¢ → ${totalCents} Dust minted!\n\nYou're in Tuesday & Friday 4:20 draws.\nMinimum win $6.90 → $69 → $690 → $6,900…`
     );
   };
 
   return (
     <div className="App">
       <header>
-        <h1>🧹 Dustbuster.ai</h1>
-        <p>Vacuum your Base wallet dust → Win real money every 4:20</p>
+        <h1>Dustbuster.ai</h1>
+        <p>Vacuum Base wallet dust → Win real money every 4:20</p>
       </header>
 
       {!connected ? (
         <button className="connect-btn" onClick={connectWallet}>
-          Connect Wallet (Base)
+          Connect Coinbase Wallet (Base)
         </button>
       ) : (
         <div className="connected">
@@ -79,7 +101,7 @@ function App() {
             ))}
 
             <p className="total">
-              Total selected:{" "}
+              Selected:{" "}
               {dustList
                 .filter((t) => t.checked)
                 .reduce((sum, t) => sum + t.value, 0)}
@@ -95,22 +117,11 @@ function App() {
             </button>
           </div>
 
-          <div className="leaderboard">
-            <h3>Top Dusters This Week</h3>
-            <ol>
-              <li>0x69...DustLord – 69 Dust</li>
-              <li>0x42...VacKing – 68 Dust</li>
-              <li>0xAB...DogeFan – 65 Dust</li>
-            </ol>
-          </div>
-
           <footer>
-            Next draw: Tuesday & Friday 4:20 PM • Minimum $6.90 • Pool → $69 → $690 → $6,900
+            Next draw: Tuesday & Friday 4:20 PM • Pool → $69 → $690 → $6,900
           </footer>
         </div>
       )}
     </div>
   );
 }
-
-export default App;
