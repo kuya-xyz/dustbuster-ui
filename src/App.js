@@ -35,12 +35,12 @@ export default function App() {
       <header>
         <div className="broom-above">🧹</div>
         <h1>dustbuster.ai</h1>
-        <p>Sweep your base wallet dust and convert them for entries to win real USDC</p>
+        <p>Sweep your useless base wallet dust and convert them for entries to win real USDC</p>
       </header>
 
       {!connected ? (
         <button className="connect-btn" onClick={connect}>
-          BASE WALLET
+          CONNECT WALLET
         </button>
       ) : (
         <div className="connected">
