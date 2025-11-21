@@ -1,11 +1,18 @@
 body { margin:0; background:#000; color:#fff; font-family:monospace; text-align:center; min-height:100vh; }
-.App { padding:40px 20px; max-width:500px; margin:0 auto; }
-h1 { font-size:3.5rem; margin:20px 0; display:flex; align-items:center; justify-content:center; gap:16px; }
-.logo { width:64px; height:64px; image-rendering:pixelated; }
-p { font-size:1.4rem; margin-bottom:50px; }
+.App { padding:30px 15px; max-width:500px; margin:0 auto; }
+
+h1 { font-size:2.6rem; margin:15px 0; display:flex; align-items:center; justify-content:center; gap:12px; }
+h1:before { content:"🧹"; font-size:2.6rem; }
+
+p { font-size:1.1rem; margin:20px 0 40px; line-height:1.4; }
+
 .connect-btn, .vacuum-btn {
-  background:#ff9500; color:#000; border:none; padding:20px 50px;
-  font-size:2rem; font-weight:bold; border-radius:20px; cursor:pointer;
-  box-shadow:0 8px 40px rgba(255,149,0,.6);
+  background:#ff9500; color:#000; border:none; padding:16px 36px;
+  font-size:1.6rem; font-weight:bold; border-radius:20px; cursor:pointer;
+  box-shadow:0 6px 30px rgba(255,149,0,.6);
 }
-.dust-box { background:#111; padding:30px; border-radius:20px; margin-top:40px; }
+
+.connected p { font-size:1rem; margin:20px 0; }
+
+.dust-box { background:#111; padding:25px; border-radius:20px; margin-top:35px; }
+.dust-box h2 { font-size:1.3rem; margin:0 0 20px; }
