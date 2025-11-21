@@ -9,7 +9,7 @@ export default function App() {
 
   const connect = async () => {
     const sdk = new CoinbaseWalletSDK({
-      appName: "Ðustbuster.ai",
+      appName: "dustbuster.ai",
       appLogoUrl: "https://dustbuster-ui.vercel.app/favicon.ico",
       darkMode: true,
     });
@@ -34,9 +34,9 @@ export default function App() {
     <div className="App">
       <header>
         <div className="broom-above">🧹</div>
-        <h1>Ðustbuster.ai</h1>
+        <h1>dustbuster.ai</h1>
         <p>
-          Sweep your base wallet for "dust" (tokens with a value &lt; $0.069) then let Ðustbuster.ai convert them for entries to win a minimum of 100x the amount in USDC!
+          Sweep your base wallet for "dust" (tokens with a value &lt;$0.069) then let the Ðoge dustbuster convert them for entries to win 100x the amount in USDC!
         </p>
       </header>
 
