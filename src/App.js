@@ -33,9 +33,8 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        <h1>
-          <span className="broom">🧹</span> dustbuster.ai
-        </h1>
+        <div className="broom-above">🧹</div>
+        <h1>dustbuster.ai</h1>
         <p>Sweep your base wallet dust to enter and win real USDC</p>
       </header>
 
