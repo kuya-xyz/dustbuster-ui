@@ -1,12 +1,12 @@
-/* Add this to the top of your existing App.css */
-h1::before { content: none !important; }
-
-/* Rest of your CSS stays exactly the same */
 body { margin:0; background:#000; color:#fff; font-family:monospace; text-align:center; min-height:100vh; }
 .App { padding:30px 15px; max-width:500px; margin:0 auto; }
 
-h1 { font-size:2.6rem; margin:15px 0; display:flex; align-items:center; justify-content:center; gap:12px; }
-.broom { font-size:2.6rem; }
+.broom-above {
+  font-size: 5.5rem;   /* ← huge broom, same height as title */
+  margin-bottom: -25px;
+}
+
+h1 { font-size: 2.6rem; margin:15px 0; }
 
 p { font-size:1.1rem; margin:20px 0 40px; line-height:1.4; }
 
