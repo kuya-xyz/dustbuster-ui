@@ -26,7 +26,7 @@ export default function App() {
   };
 
   const vacuum = () => {
-    confetti({ particleCount: 250, spread: 100, origin: { y: 0.6 }, colors: ["#ff9500", "#ffb13b"] });
+    confetti({ particleCount: 300, spread: 100, origin: { y: 0.6 }, colors: ["#ff9500", "#ffb13b"] });
     alert("vacuum complete! you're in the draw for USDC");
   };
 
