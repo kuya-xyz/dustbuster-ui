@@ -1,10 +1,11 @@
 body { margin:0; background:#000; color:#fff; font-family:monospace; text-align:center; min-height:100vh; }
 .App { padding:40px 20px; max-width:500px; margin:0 auto; }
-h1 { font-size:3rem; margin:20px 0; }
-p { font-size:1.2rem; margin-bottom:40px; }
+h1 { font-size:3.5rem; margin:20px 0; display:flex; align-items:center; justify-content:center; gap:16px; }
+.logo { width:64px; height:64px; image-rendering:pixelated; }
+p { font-size:1.4rem; margin-bottom:50px; }
 .connect-btn, .vacuum-btn {
-  background:#ff9500; color:#000; border:none; padding:20px 40px;
-  font-size:1.8rem; font-weight:bold; border-radius:20px; cursor:pointer;
-  box-shadow:0 8px 30px rgba(255,149,0,.5);
+  background:#ff9500; color:#000; border:none; padding:20px 50px;
+  font-size:2rem; font-weight:bold; border-radius:20px; cursor:pointer;
+  box-shadow:0 8px 40px rgba(255,149,0,.6);
 }
 .dust-box { background:#111; padding:30px; border-radius:20px; margin-top:40px; }
