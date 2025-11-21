@@ -1,25 +1,60 @@
-body { margin:0; background:#000; color:#fff; font-family:monospace; text-align:center; min-height:100vh; }
-.App { padding:30px 15px; max-width:500px; margin:0 auto; }
+import React, { useState } from "react";
+import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
+import confetti from "canvas-confetti";
+import "./App.css";
 
-.broom-above {
-  font-size: 6rem !important;   /* ← one point smaller, perfect */
-  margin-bottom: 0px;
-  line-height: 1;
+export default function App() {
+  const [account, setAccount] = useState("");
+  const [connected, setConnected] = useState(false);
+
+  const connect = async () => {
+    const sdk = new CoinbaseWalletSDK({
+      appName: "dustbuster.ai",
+      appLogoUrl: "https://dustbuster-ui.vercel.app/favicon.ico",
+      darkMode: true,
+    });
+
+    const provider = sdk.makeWeb3Provider("https://mainnet.base.org", 8453);
+
+    try {
+      const accounts = await provider.request({ method: "eth_requestAccounts" });
+      setAccount(accounts[0]);
+      setConnected(true);
+    } catch (e) {
+      alert("open coinbase wallet app and approve the connection");
+    }
+  };
+
+  const vacuum = () => {
+    confetti({ particleCount: 250, spread: 100, origin: { y: 0.6 }, colors: ["#ff9500", "#ffb13b"] });
+    alert("vacuum complete! you're in the draw for real USDC");
+  };
+
+  return (
+    <div className="App">
+      <header>
+        <div className="broom-above">🧹</div>
+        <h1>dustbuster.ai</h1>
+        <p>Sweep your useless base wallet dust (tokens valued less than $0.69) and convert them for entries to win real USDC</p>
+      </header>
+
+      {!connected ? (
+        <button className="connect-btn" onClick={connect}>
+          BASE WALLET
+        </button>
+      ) : (
+        <div className="connected">
+          <p>connected: {account.slice(0, 6)}...{account.slice(-4)}</p>
+
+          <div className="dust-box">
+            <h2>found dust (under $0.69)</h2>
+            <button className="vacuum-btn" onClick={vacuum}>
+              SWEEP
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
-
-h1 { font-size: 2.6rem; margin:15px 0; }
-
-p { font-size:1.1rem; margin:20px 0 40px; line-height:1.4; }
-
-.connect-btn, .vacuum-btn {
-  background:#ff9500; color:#000; border:none; padding:16px 36px;
-  font-size:1.6rem; font-weight:bold; border-radius:20px; cursor:pointer;
-  box-shadow:0 6px 30px rgba(255,149,0,.6);
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-.connected p { font-size:1rem; margin:20px 0; }
-
-.dust-box { background:#111; padding:25px; border-radius:20px; margin-top:35px; }
-.dust-box h2 { font-size:1.3rem; margin:0 0 20px; }
+                                                  
