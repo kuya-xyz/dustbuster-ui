@@ -35,7 +35,9 @@ export default function App() {
       <header>
         <div className="broom-above">🧹</div>
         <h1>dustbuster.ai</h1>
-        <p>Sweep your base wallet dust (tokens valued less than $0.69) and convert them for entries to win USDC</p>
+        <p>
+          Scan your base wallet for dust (tokens valued less than $0.69) then let dustbuster.ai convert them for entries to win a minimum of 10x the amount in USDC!
+        </p>
       </header>
 
       {!connected ? (
