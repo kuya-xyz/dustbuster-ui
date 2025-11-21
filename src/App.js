@@ -40,7 +40,7 @@ export default function App() {
 
       {!connected ? (
         <button className="connect-btn" onClick={connect}>
-          CONNECT WALLET
+          BASE WALLET
         </button>
       ) : (
         <div className="connected">
