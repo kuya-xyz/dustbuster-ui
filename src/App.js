@@ -27,7 +27,7 @@ export default function App() {
 
   const vacuum = () => {
     confetti({ particleCount: 250, spread: 100, origin: { y: 0.6 }, colors: ["#ff9500", "#ffb13b"] });
-    alert("vacuum complete! you're in the draw for real USDC");
+    alert("vacuum complete! you're in the draw for USDC");
   };
 
   return (
@@ -35,7 +35,7 @@ export default function App() {
       <header>
         <div className="broom-above">🧹</div>
         <h1>dustbuster.ai</h1>
-        <p>Sweep your useless base wallet dust (tokens valued less than $0.69) and convert them for entries to win real USDC</p>
+        <p>Sweep your useless base wallet dust (tokens valued less than $0.69) and convert them for entries to win USDC</p>
       </header>
 
       {!connected ? (
