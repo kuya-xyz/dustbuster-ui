@@ -27,7 +27,7 @@ export default function App() {
 
   const vacuum = () => {
     confetti({ particleCount: 250, spread: 100, origin: { y: 0.6 }, colors: ["#ff9500", "#ffb13b"] });
-    alert("vacuum complete! you're in the draw for real usdc");
+    alert("vacuum complete! you're in the draw for real USDC");
   };
 
   return (
@@ -36,12 +36,12 @@ export default function App() {
         <h1>
           🧹 dustbuster.ai
         </h1>
-        <p>sweep your base wallet dust to enter and win real usdc</p>
+        <p>Sweep your base wallet dust to enter and win real USDC</p>
       </header>
 
       {!connected ? (
         <button className="connect-btn" onClick={connect}>
-          connect coinbase wallet (base)
+          CONNECT BASE WALLET
         </button>
       ) : (
         <div className="connected">
@@ -50,7 +50,7 @@ export default function App() {
           <div className="dust-box">
             <h2>found dust (under $0.69)</h2>
             <button className="vacuum-btn" onClick={vacuum}>
-              vacuum selected dust
+              SWEEP DUST
             </button>
           </div>
         </div>
