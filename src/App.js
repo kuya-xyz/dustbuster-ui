@@ -36,7 +36,7 @@ export default function App() {
         <div className="broom-above">🧹</div>
         <h1>dustbuster.ai</h1>
         <p>
-          Scan your base wallet for "dust" (tokens you hold with a value of less than $0.69) then let dustbuster.ai convert them for entries to win a minimum of 10x the amount in USDC!
+          Sweep your base wallet for "dust" (tokens you hold with a total value of less than $0.69) then let dustbuster.ai convert them for entries to win a minimum of 10x the amount in USDC!
         </p>
       </header>
 
