@@ -35,7 +35,7 @@ export default function App() {
       <header>
         <div className="broom-above">🧹</div>
         <h1>dustbuster.ai</h1>
-        <p>Sweep your base wallet dust to enter and win real USDC</p>
+        <p>Sweep your base wallet dust and convert them to Ðoge Dust for a chance to win real USDC</p>
       </header>
 
       {!connected ? (
