@@ -2,8 +2,8 @@ body { margin:0; background:#000; color:#fff; font-family:monospace; text-align:
 .App { padding:30px 15px; max-width:500px; margin:0 auto; }
 
 .broom-above {
-font-size: 6rem !important;   /* ← huge, impossible to miss */
-  margin-bottom: -40px;
+  font-size: 7rem !important;   /* ← perfect size, bold and clear */
+  margin-bottom: -35px;
   line-height: 1;
 }
 
