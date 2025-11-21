@@ -50,7 +50,7 @@ export default function App() {
           <div className="dust-box">
             <h2>found dust (under $0.69)</h2>
             <button className="vacuum-btn" onClick={vacuum}>
-              SWEEP DUST
+              SWEEP
             </button>
           </div>
         </div>
