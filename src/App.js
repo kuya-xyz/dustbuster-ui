@@ -34,7 +34,7 @@ export default function App() {
     <div className="App">
       <header>
         <h1>
-          🧹 dustbuster.ai
+          <span className="broom">🧹</span> dustbuster.ai
         </h1>
         <p>Sweep your base wallet dust to enter and win real USDC</p>
       </header>
