@@ -25,7 +25,7 @@ export default function App() {
     }
   };
 
-  const vacuum = () => {
+   const vacuum = () => {
     confetti({ particleCount: 250, spread: 100, origin: { y: 0.6 }, colors: ["#ff9500", "#ffb13b"] });
     alert("vacuum complete! you're in the draw for USDC");
   };
@@ -36,7 +36,7 @@ export default function App() {
         <div className="broom-above">🧹</div>
         <h1>dustbuster.ai</h1>
         <p>
-          Sweep your base wallet for "dust" (tokens you hold with a total value of less than $0.69) then let dustbuster.ai convert them for entries to win a minimum of 10x the amount in USDC!
+          Sweep your base wallet for "dust" (tokens you hold with a total value of less than $0.69) then let dustbuster.ai convert them for a 1:1 entry to a prize pool ranging from 10x - 1000x the amount in USDC!
         </p>
       </header>
 
